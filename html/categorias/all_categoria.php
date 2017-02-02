@@ -40,11 +40,11 @@
   </div>
 
   <div class="row categorias_con_foros">
-    <div class="col-sm-12">
+    <div class="col-sm-12 col-xs-12">
         <div class="row titulo_categoria">Gestión de Categorías</div>
 
         <div class="row cajas">
-          <div class="col-md-12">
+          <div class="col-md-12 col-sm-12 col-xs-12">
             <?php
 
             if($db->rows($sql) > 0) {

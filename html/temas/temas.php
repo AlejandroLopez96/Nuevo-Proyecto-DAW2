@@ -46,7 +46,7 @@
      </ol>
 
      <div class="row categorias_con_foros">
-       <div class="col-sm-12">
+       <div class="col-sm-12 col-xs-12">
            <div class="row titulo_categoria">Anuncios</div>
 
            <?php
@@ -61,25 +61,25 @@
                }
 
                echo '<div class="row foros">
-                 <div class="col-md-1" style="height:50px;line-height: 37px;">
+                 <div class="col-md-1 col-sm-1 col-xs-1" style="height:50px;line-height: 37px;">
                    <img src="cuerpo/vista/app/images/images/foros/anuncio_leido'.$extension.'" />
                  </div>
-                 <div class="col-md-7 puntitos" style="padding-left: 0px;line-height: 37px;">
+                 <div class="col-md-7 col-sm-5 col-xs-3 puntitos" style="padding-left: 30px;line-height: 37px;">
                    <a href="temas/'.UrlAmigable($anuncio['id'],$anuncio['titulo'],$id_foro).'">'.$anuncio['titulo'].'</a>
                  </div>
-                 <div class="col-md-2 left_border" style="text-align: center;font-weight: bold;">
+                 <div class="col-md-2 col-sm-4 col-xs-5 left_border" style="text-align: center;font-weight: bold;">
                    './*Con esto colocamos un formato de salida, osea tiene 0 decimales, cada vez que haya decimal que se pongs una coma y que cuando es miles se ponga un punto*/number_format($anuncio['visitas'],0,',','.').' Visitas<br />
                    '.number_format($anuncio['respuestas'],0,',','.').' Respuestas
                  </div>
-                 <div class="col-md-2 left_border puntitos" style="">
-                   Por <a href="#">'.$users[$anuncio['id_ultimo']]['user'].'</a><br />
+                 <div class="col-md-2 col-sm-2 col-xs-2 left_border puntitos" style="">
+                   Por <a href="?view=perfil&id='.$anuncio['id_ultimo'].'">'.$users[$anuncio['id_ultimo']]['user'].'</a><br />
                    '.$anuncio['fecha_ultimo'].'
                  </div>
                </div>';
              }
            } else {
              echo '<div class="row foros">
-               <div class="col-md-12" style="height:50px;line-height: 37px;">
+               <div class="col-md-12 col-sm-12 col-xs-12" style="height:50px;line-height: 37px;">
                  No existe ningún tema.
                </div>
              </div>';
@@ -105,18 +105,18 @@
                }
 
                echo '<div class="row foros">
-                 <div class="col-md-1" style="height:50px;line-height: 37px;">
+                 <div class="col-md-1 col-sm-1 col-xs-1" style="height:50px;line-height: 37px;">
                    <img src="cuerpo/vista/app/images/images/foros/foro_leido'.$extension.'" />
                  </div>
-                 <div class="col-md-7 puntitos" style="padding-left: 0px;line-height: 37px;">
+                 <div class="col-md-7 col-sm-5 col-xs-3 puntitos" style="padding-left: 30px;line-height: 37px;">
                    <a href="temas/'.UrlAmigable($tema['id'],$tema['titulo'],$id_foro).'">'.$tema['titulo'].'</a>
                  </div>
-                 <div class="col-md-2 left_border" style="text-align: center;font-weight: bold;">
+                 <div class="col-md-2 col-sm-4 col-xs-5 left_border" style="text-align: center;font-weight: bold;">
                    '.number_format($tema['visitas'],0,',','.').' Visitas<br />
                    '.number_format($tema['respuestas'],0,',','.').' Respuestas
                  </div>
-                 <div class="col-md-2 left_border puntitos" style="">
-                   Por <a href="#">'.$users[$tema['id_ultimo']]['user'].'</a><br />
+                 <div class="col-md-2 col-sm-2 col-xs-2 left_border puntitos" style="">
+                   Por <a href="?view=perfil&id='.$tema['id_ultimo'].'">'.$users[$tema['id_ultimo']]['user'].'</a><br />
                    '.$tema['fecha_ultimo'].'
                  </div>
                </div>';

@@ -50,9 +50,17 @@
                <div class="form-group">
                  <label for="inputEmail" class="col-lg-2 control-label">Contenido</label>
                  <div class="col-lg-10">
-                   <textarea class="form-control tema_textrea" name="content" placeholder="Contenido de tu tema"></textarea>
+                   <textarea class="form-control tema_textarea" name="content" placeholder="Contenido de tu tema"></textarea>
                  </div>
                </div>
+               <?php
+                if($users[$_SESSION['app_id']]['rol'] > 0){//asi compruebo que el usuario tenga un rol superior a 0 que seria el basico
+                  echo '<div class="form-group">
+                    <label class="col-lg-2"></label>
+                    <label for="inputEmail" class="col-lg-10 control-label" style="text-align: left;"><input type="checkbox" value="1" name="anuncio"/>Crear tema como anuncio</label>
+                  </div>';
+                }
+               ?>
                <div class="form-group">
                  <div class="col-lg-10 col-lg-offset-2">
                    <button type="reset" class="btn btn-default">Resetear</button>

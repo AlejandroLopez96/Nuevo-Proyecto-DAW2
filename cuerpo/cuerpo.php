@@ -37,6 +37,10 @@ require('cuerpo/bin/functions/LostpassTemplate.php');
 require('cuerpo/bin/functions/Categorias.php');
 require('cuerpo/bin/functions/Foros.php');
 require('cuerpo/bin/functions/UrlAmigable.php');
+require('cuerpo/bin/functions/BBcode.php');
+require('cuerpo/bin/functions/OnlineUsers.php');
+require('cuerpo/bin/functions/GetUserStatus.php');
+require('cuerpo/bin/functions/IncrementarVisita.php');
 
 $users = Users();/*$user la utilizamos porque va a ser una variable global que vamos a utilizar muhco*/
 $categorias = Categorias();

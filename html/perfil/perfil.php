@@ -29,14 +29,17 @@
            <center>
 
              <img src="cuerpo/vista/app/images/images/users/<?php echo $users[$id_usuario]['img'];?>" class="thumbnail" height="120" />
-             <strong><?php echo $users[$id_usuario]['user']; ?></strong> <br />
-             <b><?php echo $users[$id_usuario]['rango']; ?></b> <br />
-             <?php echo $db->recorrer($sql)[0]; ?> temas <br />
-             30 mensajes <br />
-             <?php echo $users[$id_usuario]['edad']; ?> años<br />
-             Registrado el <?php echo $users[$id_usuario]['fecha_reg']; ?>
-
-           </center>
+             <strong><?php echo $users[$id_usuario]['user']; ?></strong>
+             <img src="cuerpo/vista/app/images/images/<?php echo GetUserStatus($users[$id_usuario]['ultima_conexion']); ?>" /> <br />
+             <b style="color:green;">**<?php echo $users[$id_usuario]['rango']; ?>**</b>
+          <br /><br />
+          </center>
+          <ul style="list-style:none; padding-left: 4px;">
+              <li><b><?php echo $db->recorrer($sql)[0]; ?></b> temas </li>
+              <li><b>30</b> mensajes</li>
+              <li><b><?php echo $users[$id_usuario]['edad']; ?></b> años</li>
+              <li>Registrado el <b><?php echo $users[$id_usuario]['fecha_reg']; ?></b></li>
+            </ul>
 
          </div>
          <div class="col-md-10">
@@ -45,7 +48,7 @@
            </blockquote>
            <hr />
            <p>
-             <?php echo $users[$id_usuario]['firma']; ?>
+             <?php echo BBcode($users[$id_usuario]['firma']); ?>
            </p>
          </div>
        </div>

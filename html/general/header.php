@@ -17,6 +17,7 @@
   <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
 
   <script src="cuerpo/vista/app/js/generales.js"></script>
+  <!--<script src="push.min.js"></script>-->
 
   <title><?php echo APP_TITLE ?></title>
 </head>

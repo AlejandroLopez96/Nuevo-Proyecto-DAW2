@@ -8,6 +8,7 @@ class Temas {
   private $content;
   private $id_foro;
   private $id_dueno;
+  private $anuncio;
 
   public function __construct(){
     $this->db = new Conexion();
@@ -33,6 +34,12 @@ class Temas {
         throw new Exception(3);
       }
 
+      if(isset($_POST['anuncio']) and $_POST['anuncio'] == 1){
+        $this->anuncio = 2;
+      }else{
+        $this->anuncio = 1;
+      }
+
      } catch(Exception $error) {
        header('location: ' . $url . $error->getMessage());
        exit;
@@ -42,7 +49,7 @@ class Temas {
   public function Add(){
     $this->Errors('?view=temas&mode=add&id_foro='.$this->id_foro.'&error=');
     $fecha = date('d/m/Y h:i a',time());//dia/mes/año completo despues hora:mins
-    $this->db->query("INSERT INTO temas (titulo, contenido,id_foro,id_dueno,fecha,id_ultimo,fecha_ultimo) VALUES ('$this->titulo', '$this->content','$this->id_foro','$this->id_dueno', '$fecha','$this->id_dueno','$fecha')");
+    $this->db->query("INSERT INTO temas (titulo, contenido,id_foro,id_dueno,fecha,id_ultimo,fecha_ultimo,tipo) VALUES ('$this->titulo', '$this->content','$this->id_foro','$this->id_dueno', '$fecha','$this->id_dueno','$fecha','$this->anuncio')");
     $ID_TEMA = $this->db->insert_id;
     $this->db->query("UPDATE foros SET cantidad_temas=cantidad_temas + '1', cantidad_mensajes=cantidad_mensajes + '1' , ultimo_tema='$this->titulo', id_ultimo_tema='$ID_TEMA' WHERE id='$this->id_foro'");
     header('location: ./temas/' . UrlAmigable($ID_TEMA,$this->titulo,$this->id_foro));//el insert_id nos va a devolver la ultima id que fue insertada

@@ -49,6 +49,17 @@ if(isset($_GET['id_foro']) and array_key_exists($_GET['id_foro'],$foros)){
           header('location: index.php?view=index');
         }
       break;
+      case 'responder':
+        if($isset_id and $loged){
+          if($_POST){
+
+          }else{
+
+          }
+        }else{
+          header('location: index.php?view=index');
+        }
+      break;
       case 'anuncio':
         if($isset_id and $loged){
           $temas->Anuncio();
@@ -60,7 +71,8 @@ if(isset($_GET['id_foro']) and array_key_exists($_GET['id_foro'],$foros)){
         if($isset_id){
           $tema = $temas->Check();
           if(false != $tema){
-
+            IncrementarVisita($_GET['id']);
+            include(HTML_DIR . 'temas/ver_tema.php');
           }else{
             header('location: index.php?view=index');
           }
