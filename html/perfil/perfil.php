@@ -36,7 +36,7 @@
           </center>
           <ul style="list-style:none; padding-left: 4px;">
               <li><b><?php echo $db->recorrer($sql)[0]; ?></b> temas </li>
-              <li><b>30</b> mensajes</li>
+              <li><b><?php echo $users[$id_usuario]['mensajes']?></b> mensajes</li>
               <li><b><?php echo $users[$id_usuario]['edad']; ?></b> años</li>
               <li>Registrado el <b><?php echo $users[$id_usuario]['fecha_reg']; ?></b></li>
             </ul>

@@ -42,7 +42,7 @@
 
      <ol class="breadcrumb">
        <li><a href="?view=index"><i class="fa fa-home"></i> Inicio</a></li>
-       <li><a href="?view=index"><i class="fa fa-comments"></i> <?php echo $foros[$id_foro]['nombre'] ?></a></li>
+       <li><a href="?view=foros&id=<?php echo $id_foro ?>"><i class="fa fa-comments"></i> <?php echo $foros[$id_foro]['nombre'] ?></a></li>
      </ol>
 
      <div class="row categorias_con_foros">
