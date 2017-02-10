@@ -77,7 +77,7 @@ if(false != $categorias){
           if($foros[$id_del_foro]['ultimo_tema'] == ''){
             $ultimo_tema = '<a href="#">No hay temas creados</a>';
           }else{
-            $ultimo_tema = '<a href="temas/'.UrlAmigable($foros[$id_del_foro]['id_ultimo_tema'],$foros[$id_del_foro]['ultimo_tema'],$id_foro).'">'.$foros[$id_del_foro]['ultimo_tema'].'</a>';
+            $ultimo_tema = '<a href="temas/'.UrlAmigable($foros[$id_del_foro]['id_ultimo_tema'],$foros[$id_del_foro]['ultimo_tema'],$id_del_foro).'">'.$foros[$id_del_foro]['ultimo_tema'].'</a>';
           }
           echo '<div class="row foros">
             <div class="col-md-1 col-sm-1 col-xs-1" style="height:50px;line-height: 37px;">
