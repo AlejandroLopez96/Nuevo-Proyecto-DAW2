@@ -37,8 +37,7 @@
        <button type="button" class="close" data-dismiss="alert">x</button>
        <strong>ERROR:</strong> ' . $mail->ErrorInfo . ' </div>';
    } else {
-     $fecha_reg = date('d/m/Y', time());
-     $db->query("INSERT INTO users (user,email,pass,keyreg,fecha_reg) VALUES ('$user','$email','$pass','$keyreg','$fecha_reg');");
+     $db->query("INSERT INTO users (user,email,pass,keyreg) VALUES ('$user','$email','$pass','$keyreg');");
      $sql_2 = $db->query("SELECT MAX(id) AS id FROM users;");
      $_SESSION['app_id'] = $db->recorrer($sql_2)[0];
      $db->liberar($sql_2);

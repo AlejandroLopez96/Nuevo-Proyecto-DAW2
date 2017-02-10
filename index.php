@@ -1,6 +1,5 @@
 <?php
 require('cuerpo/cuerpo.php');
-OnlineUsers();
 
 if(isset($_GET['view'])){
   if(file_exists('cuerpo/controlador/'.strtolower($_GET['view']). 'Controlador.php')){

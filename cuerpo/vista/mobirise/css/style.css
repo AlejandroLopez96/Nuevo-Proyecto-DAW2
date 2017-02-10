@@ -553,7 +553,7 @@ html {
 }
 .mbr-section__container--isolated {
   padding-bottom: 93px;
-  padding-top: 50px;
+  padding-top: 93px;
 }
 .mbr-section__container--first {
   padding-top: 93px;
@@ -606,7 +606,7 @@ html {
   }
   .mbr-section--short-paddings .mbr-section__container--isolated {
     padding-bottom: 59px;
-    padding-top: 50px;
+    padding-top: 59px;
   }
   .mbr-section--short-paddings .mbr-section__container--first {
     padding-top: 59px;
@@ -1257,7 +1257,7 @@ html {
   .mbr-buttons--active .mbr-buttons__btn,
   .mbr-buttons--active .mbr-buttons__link {
     margin-left: 0;
-    margin-right: 18px;
+    margin-right: 0;
   }
   .mbr-buttons--active .mbr-buttons__link {
     font-size: 25px;
@@ -1265,8 +1265,8 @@ html {
   }
   .mbr-buttons--active .mbr-buttons__btn {
     font-size: 15px;
-    margin-top: 4px;
-    padding: 7px 14px;
+    margin-top: 9px;
+    padding: 15px 30px;
   }
   .mbr-buttons--freeze.mbr-buttons--active .mbr-buttons__link {
     font-size: 25px !important;

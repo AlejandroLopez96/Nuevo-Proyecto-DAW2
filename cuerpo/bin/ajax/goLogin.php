@@ -11,7 +11,6 @@ if(!empty($_POST['user']) and !empty($_POST['pass'])){
       ini_set('session.cookie_lifetime', time() + (60*60*24));/*Esta es la duración de la sesion que es de 1 dia osea 24 horas*/
     }
     $_SESSION['app_id'] = $db->recorrer($sql)[0];/*Aqui ahorramos codigo, porque db->recorrer($sql) devuelve un array y asi no creamos una variable solamente para el db->recorrer($sql) */
-    $_SESSION['time_online'] = time() - (60*6);//cada vez que un usuario inicie sesion se va a crear  esta variable de sesion, le restamos 6 mins simulando que la ultima conexion fue hace 6 mins
     echo 1;
   }else{
     echo '<div class="alert alert-dismissible alert-danger">

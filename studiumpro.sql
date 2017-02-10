@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-02-2017 a las 19:49:08
--- Versión del servidor: 10.1.19-MariaDB
--- Versión de PHP: 5.6.28
+-- Tiempo de generación: 10-02-2017 a las 09:46:46
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -37,7 +37,7 @@ CREATE TABLE `categorias` (
 
 INSERT INTO `categorias` (`id`, `nombre`) VALUES
 (11, 'Categoria Prueba'),
-(13, 'Otra categoria');
+(15, 'Otra categoria');
 
 -- --------------------------------------------------------
 
@@ -55,7 +55,7 @@ CREATE TABLE `config` (
 --
 
 INSERT INTO `config` (`id`, `timer`) VALUES
-(1, 1485945476);
+(1, 1486714891);
 
 -- --------------------------------------------------------
 
@@ -81,8 +81,28 @@ CREATE TABLE `foros` (
 
 INSERT INTO `foros` (`id`, `nombre`, `descrip`, `cantidad_mensajes`, `cantidad_temas`, `id_categorias`, `estado`, `ultimo_tema`, `id_ultimo_tema`) VALUES
 (1, 'BIGINT 250', 'Este es la descripcion del foro', 0, 0, 11, 0, '', 0),
-(4, 'Vamos con el foro', 'papapa', 7, 7, 11, 1, 'TEMA COMO ANUNCIO CORRECTAMENTE', 9),
-(5, 'Otro foro mas', 'toma toma', 0, 0, 13, 1, '', 0);
+(4, 'Vamos con el foro', 'papapa', 2, 1, 11, 1, 'TEMA 1 eeeeeeeeeeeeeeee', 14);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `respuestas`
+--
+
+CREATE TABLE `respuestas` (
+  `id` bigint(255) NOT NULL,
+  `id_dueno` int(255) NOT NULL,
+  `id_tema` int(255) NOT NULL,
+  `id_foro` int(255) NOT NULL,
+  `contenido` longtext COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `respuestas`
+--
+
+INSERT INTO `respuestas` (`id`, `id_dueno`, `id_tema`, `id_foro`, `contenido`) VALUES
+(0, 1, 14, 4, '[b]Negrita[/b]\r\n[i]Italic[/i]\r\n[u]Subrayado[/u]\r\n[s]Tachado[/s]');
 
 -- --------------------------------------------------------
 
@@ -110,13 +130,7 @@ CREATE TABLE `temas` (
 --
 
 INSERT INTO `temas` (`id`, `titulo`, `contenido`, `id_foro`, `id_dueno`, `estado`, `tipo`, `fecha`, `visitas`, `respuestas`, `id_ultimo`, `fecha_ultimo`) VALUES
-(1, 'Mi nuevo temaaaaaaaaaaa', ']Negrita[/b]\r\n[i]Italic[/i]\r\n[u]Subrayado[/u]\r\n[s]Tachado[/s]\r\n[img]URL image[/img]\r\n[center]Centrar[/center]\r\n[h1]Titulo gigante[/h1]\r\n[h2]Titulo medianamete grande[/h2]\r\n[h3]Titulo mediano[/h3]\r\n[h4]Titulo normal[/h4]]Negrita[/b]\r\n[i]Italic[/i]\r\n[u]Subrayado[/u]\r\n[s]Tachado[/s]\r\n[img]URL image[/img]\r\n[center]Centrar[/center]\r\n[h1]Titulo gigante[/h1]\r\n[h2]Titulo medianamete grande[/h2]\r\n[h3]Titulo mediano[/h3]\r\n[h4]Titulo normal[/h4]]Negrita[/b]\r\n[i]Italic[/i]\r\n[u]Subrayado[/u]\r\n[s]Tachado[/s]\r\n[img]URL image[/img]\r\n[center]Centrar[/center]\r\n[h1]Titulo gigante[/h1]\r\n[h2]Titulo medianamete grande[/h2]\r\n[h3]Titulo mediano[/h3]\r\n[h4]Titulo normal[/h4]]Negrita[/b]\r\n[i]Italic[/i]\r\n[u]Subrayado[/u]\r\n[s]Tachado[/s]\r\n[img]URL image[/img]\r\n[center]Centrar[/center]\r\n[h1]Titulo gigante[/h1]\r\n[h2]Titulo medianamete grande[/h2]\r\n[h3]Titulo mediano[/h3]\r\n[h4]Titulo normal[/h4]', 4, 1, 1, 1, '24/01/2017 ', 0, 0, 1, '24/01/2017 08:39 am'),
-(2, 'Oleeeee oleeeeee', '[b]Negrita[/b]\r\n[i]Italic[/i]\r\n[u]Subrayado[/u]\r\n[s]Tachado[/s]\r\n[img]URL image[/img]\r\n[center]Centrar[/center]\r\n[h1]Titulo gigante[/h1]\r\n[h2]Titulo medianamete grande[/h2]\r\n[h3]Titulo mediano[/h3]\r\n[h4]Titulo normal[/h4]\r\n[h5]Titulo pequeño[/h5]\r\n[h6]Titulo muy pequeño[/h6]\r\n[quote]Cita[/quote]', 4, 7, 1, 1, '24/01/2017 ', 0, 0, 7, '24/01/2017 07:31 pm'),
-(3, 'ssfdghjghfhkjghjkhjghg', '[i]Italic[/i]\r\n[u]Subrayado[/u]\r\n[s]Tachado[/s]\r\n[img]URL image[/img]\r\n[center]Centrar[/center]\r\n[h1]Titulo gigante[/h1]\r\n[h2]Titulo medianamete grande[/h2]\r\n[h3]Titulo mediano[/h3]\r\n[h4]Titulo normal[/h4]\r\n[h5]Titulo pequeño[/h5]\r\n[h6]Titulo muy pequeño[/h6]\r\n[quote]Cita[/quote]', 4, 11, 1, 1, '24/01/2017 ', 0, 0, 11, '24/01/2017 07:37 pm'),
-(5, 'Tema nuevo', 'b]Negrita[/b]\r\n[i]Italic[/i]\r\n[u]Subrayado[/u]\r\n[s]Tachado[/s]\r\n[img]URL image[/img]\r\n[center]Centrar[/center]\r\n[h1]Titulo gigante[/h1]\r\n[h2]Titulo medianamete grande[/h2]\r\n[h3]Titulo mediano[/h3]\r\n[h4]Titulo normal[/h4]\r\n[h5]Titulo pequeño[/h5]\r\n[h6]Titulo muy pequeño[/h6]\r\n[quote]Cita[/quote]\r\n[size=20]T', 4, 1, 1, 1, '27/01/2017 ', 0, 0, 1, '27/01/2017 10:05 am'),
-(7, 'todo BBCode', 'BBCode\r\n[b]Negrita[/b]\r\n[i]Italic[/i]\r\n[u]Subrayado[/u]\r\n[s]Tachado[/s]\r\n[img]URL image[/img]\r\n[center]Centrar[/center]\r\n[h1]Titulo gigante[/h1]\r\n[h2]Titulo medianamete grande[/h2]\r\n[h3]Titulo mediano[/h3]\r\n[h4]Titulo normal[/h4]\r\n[h5]Titulo pequeño[/h5]\r\n[h6]Titulo muy pequeño[/h6]\r\n[quote]Cita[/quote]\r\n[size=20]Texto en 20px[/size]\r\n[url=URL LINK]Texto a hacer clic[/url]\r\n[font=Arial]Texto en arial[/font]\r\n[bgimage=URL IMAGEN]Texto donde habrá imagen de fondo[/bgimage]\r\n[color=red]Color Rojo[/color]\r\n[bgcolor=red]Color de fondo Rojo[/bgcolor]', 4, 1, 1, 1, '31/01/2017 ', 1, 0, 1, '31/01/2017 08:50 pm'),
-(8, 'TEMA COMO ANUNCIO', '[size=20]Texto en 20px[/size]\r\n[url=URL LINK]Texto a hacer clic[/url]\r\n[font=Arial]Texto en arial[/font]\r\n[bgimage=URL IMAGEN]Texto donde habrá imagen de fondo[/bgimage]\r\n[color=red]Color Rojo[/color]\r\n[bgcolor=red]Color de fondo Rojo[/bgcolor]', 4, 1, 1, 1, '31/01/2017 ', 0, 0, 1, '31/01/2017 09:43 pm'),
-(9, 'TEMA COMO ANUNCIO CORRECTAMENTE', '[quote]Cita[/quote]\r\n[size=20]Texto en 20px[/size]\r\n[url=URL LINK]Texto a hacer clic[/url]\r\n[font=Arial]Texto en arial[/font]\r\n[bgimage=URL IMAGEN]Texto donde habrá imagen de fondo[/bgimage]\r\n[color=red]Color Rojo[/color]\r\n[bgcolor=red]Color de fondo Rojo[/bgcolor]', 4, 1, 1, 2, '31/01/2017 ', 6, 0, 1, '31/01/2017 09:45 pm');
+(14, 'TEMA 1 eeeeeeeeeeeeeeee', '[b]Negrita[/b]\r\n[i]Italic[/i]\r\n[u]Subrayado[/u]\r\n[s]Tachado[/s]\r\n[img]URL image[/img]\r\n[center]Centrar[/center]\r\n[h1]Titulo gigante[/h1]\r\n[h2]Titulo medianamete grande[/h2]\r\n[h3]Titulo mediano[/h3]\r\n[h4]Titulo normal[/h4]', 4, 1, 1, 1, '09/02/2017 ', 21, 1, 1, '09/02/2017 11:51 pm');
 
 -- --------------------------------------------------------
 
@@ -141,20 +155,21 @@ CREATE TABLE `users` (
   `rango` varchar(70) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Usuario',
   `edad` int(3) NOT NULL DEFAULT '18',
   `fecha_reg` varchar(11) COLLATE utf8_unicode_ci NOT NULL DEFAULT '26/01/2017',
-  `biografia` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `biografia` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `mensajes` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `user`, `pass`, `email`, `rol`, `activo`, `keyreg`, `keypass`, `new_pass`, `ultima_conexion`, `no_leidos`, `img`, `firma`, `rango`, `edad`, `fecha_reg`, `biografia`) VALUES
-(1, 'alexlopez9', 'c0784027b45aa11e848a38e890f8416c', 'alexlopezortiz9@gmail.com', 2, 1, '', '', '', 1485945397, '', 'default.jpg', '[center][img]cuerpo/vista/app/images/images/firmas/firma02.jpg[/img][/center]', 'Usuario', 18, '26/01/2017', 'Esta es mi biografía'),
-(6, 'usuario2', 'c0784027b45aa11e848a38e890f8416c', 'usuario2@gmail.com', 0, 1, '', '', '', 1485945476, '', 'default.jpg', '[center][img]cuerpo/vista/app/images/images/firmas/firma03.png[/img][/center]', 'Usuario', 18, '26/01/2017', ''),
-(7, 'AL96', 'c0784027b45aa11e848a38e890f8416c', 'alexlopezortiz@gmail.com', 0, 1, '', '', '', 1485945428, '', 'default.jpg', '[center][img]cuerpo/vista/app/images/images/firmas/firma01.png[/img][/center]', 'Usuario', 18, '26/01/2017', ''),
-(9, 'usuario1', '65402f90ef3ceb04c9a50fe3b5aa895d', 'usuario1@gmail.com', 0, 1, '', '', '', 1485693860, '', 'default.jpg', '[center][img]http://i.imgur.com/iPDfSv8.png?1[/img][/center]ç', 'Usuario', 18, '26/01/2017', ''),
-(10, 'usuario3', '65402f90ef3ceb04c9a50fe3b5aa895d', 'usuario3@gmail.com', 0, 1, '', '', '', 1485693860, '', 'default.jpg', '', 'Usuario', 18, '26/01/2017', ''),
-(11, 'usuario4', 'c0784027b45aa11e848a38e890f8416c', 'usuario4@gmail.com', 0, 1, '', '', '', 1485888668, '', 'default.jpg', '', 'Usuario', 18, '26/01/2017', '');
+INSERT INTO `users` (`id`, `user`, `pass`, `email`, `rol`, `activo`, `keyreg`, `keypass`, `new_pass`, `ultima_conexion`, `no_leidos`, `img`, `firma`, `rango`, `edad`, `fecha_reg`, `biografia`, `mensajes`) VALUES
+(1, 'alexlopez9', 'c0784027b45aa11e848a38e890f8416c', 'alexlopezortiz9@gmail.com', 2, 1, '', '', '', 1486714891, '', 'default.jpg', '[center][img]cuerpo/vista/app/images/images/firmas/firma02.jpg[/img][/center]', 'Usuario', 18, '26/01/2017', 'Esta es mi biografía', 1),
+(6, 'usuario2', 'c0784027b45aa11e848a38e890f8416c', 'usuario2@gmail.com', 0, 1, '', '', '', 1485945476, '', 'default.jpg', '[center][img]cuerpo/vista/app/images/images/firmas/firma03.png[/img][/center]', 'Usuario', 18, '26/01/2017', '', 0),
+(7, 'AL96', 'c0784027b45aa11e848a38e890f8416c', 'alexlopezortiz@gmail.com', 0, 1, '', '', '', 1486637475, '', 'default.jpg', '[center][img]cuerpo/vista/app/images/images/firmas/firma01.png[/img][/center]', 'Usuario', 18, '26/01/2017', '', 0),
+(9, 'usuario1', '65402f90ef3ceb04c9a50fe3b5aa895d', 'usuario1@gmail.com', 0, 1, '', '', '', 1485693860, '', 'default.jpg', '[center][img]http://i.imgur.com/iPDfSv8.png?1[/img][/center]ç', 'Usuario', 18, '26/01/2017', '', 0),
+(10, 'usuario3', '65402f90ef3ceb04c9a50fe3b5aa895d', 'usuario3@gmail.com', 0, 1, '', '', '', 1485693860, '', 'default.jpg', '', 'Usuario', 18, '26/01/2017', '', 0),
+(11, 'usuario4', 'c0784027b45aa11e848a38e890f8416c', 'usuario4@gmail.com', 0, 1, '', '', '', 1485888668, '', 'default.jpg', '', 'Usuario', 18, '26/01/2017', '', 0);
 
 --
 -- Índices para tablas volcadas
@@ -198,7 +213,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `config`
 --
@@ -213,7 +228,7 @@ ALTER TABLE `foros`
 -- AUTO_INCREMENT de la tabla `temas`
 --
 ALTER TABLE `temas`
-  MODIFY `id` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
